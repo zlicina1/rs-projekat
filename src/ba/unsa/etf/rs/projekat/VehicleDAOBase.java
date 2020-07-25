@@ -2,15 +2,12 @@ package ba.unsa.etf.rs.projekat;
 
 import javafx.collections.ObservableList;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class VehicleDAOBase implements VehicleDAO {
     private static VehicleDAOBase instance = null;
     private Connection connection;
-    private PreparedStatement getUserPs;
+    private PreparedStatement getUserPs, addUserPs, getIdUserPs;
 
     public VehicleDAOBase() {
         String url = "jdbc:sqlite:database.db";
@@ -22,15 +19,27 @@ public class VehicleDAOBase implements VehicleDAO {
         }
 
         try{
-             getUserPs = connection.prepareStatement("SELECT name, surname, location_id FROM User, Location WHERE User.location_id = Location.location_id WHERE user.user_id=?");
+             getUserPs = connection.prepareStatement("SELECT name, surname FROM User");
         }catch (SQLException e){
             regenerateBase();
             try {
-                getUserPs = connection.prepareStatement("SELECT name, surname, location_id FROM User, Location WHERE User.location_id = Location.location_id WHERE user.user_id=?");
+                getUserPs = connection.prepareStatement("SELECT name, surname FROM User");
             }catch (SQLException e1){
                 e1.printStackTrace();
             }
         }
+        try {
+            getIdUserPs = connection.prepareStatement("SELECT MAX(user_id) + 1 FROM User");
+            addUserPs = connection.prepareStatement("INSERT INTO User VALUES (?,?,?,?,?,?)");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static VehicleDAOBase getInstance() {
+        if (instance == null) instance = new VehicleDAOBase();
+        return instance;
     }
 
     @Override
@@ -46,6 +55,29 @@ public class VehicleDAOBase implements VehicleDAO {
     @Override
     public ObservableList<Owner> getVehicles() {
         return null;
+    }
+
+    @Override
+    public void addUser(User user) {
+        try {
+            int id = 1;
+            ResultSet resultSet1 = getIdUserPs.executeQuery();
+            if (resultSet1.next()){
+                id = resultSet1.getInt(1);
+            }
+            if (id == 0) id = 1;
+
+            addUserPs.setInt(1,id);
+            addUserPs.setString(2,user.getName());
+            addUserPs.setString(3,user.getSurname());
+            addUserPs.setString(4,user.getUsername());
+            addUserPs.setString(5,user.getEmail());
+            addUserPs.setString(6,user.getPassword());
+            addUserPs.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override

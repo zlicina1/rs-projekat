@@ -6,8 +6,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" styleClass="blue-panel" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
-   <stylesheets>
+<VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" styleClass="blue-panel" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="ba.unsa.etf.rs.projekat.SignInController">
+    <stylesheets>
        <URL value="@/css/login.css" />
    </stylesheets>
     <children>
@@ -20,30 +21,46 @@
          </VBox.margin></Label>
       <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0" styleClass="hbox1">
          <children>
-            <TextField promptText="Email" styleClass="email" HBox.hgrow="ALWAYS" />
+            <TextField fx:id="fldName" promptText="Name" styleClass="email" HBox.hgrow="ALWAYS" />
          </children>
          <VBox.margin>
             <Insets left="20.0" right="20.0" top="20.0" />
          </VBox.margin>
       </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0" styleClass="hbox1">
+            <children>
+                <TextField fx:id="fldSurname" promptText="Surname" styleClass="email" HBox.hgrow="ALWAYS" />
+            </children>
+            <VBox.margin>
+                <Insets left="20.0" right="20.0" top="20.0" />
+            </VBox.margin>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="248.0" prefHeight="40.0" prefWidth="200.0" styleClass="hbox1">
+            <children>
+                <TextField fx:id="fldUsername" promptText="Username" styleClass="email" HBox.hgrow="ALWAYS">
+                    <HBox.margin>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                    </HBox.margin>
+                </TextField>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0" styleClass="hbox1">
+            <children>
+                <TextField fx:id="fldEmail" promptText="Email" styleClass="email" HBox.hgrow="ALWAYS" />
+            </children>
+            <VBox.margin>
+                <Insets left="20.0" right="20.0" top="20.0" />
+            </VBox.margin>
+        </HBox>
       <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="245.0" prefHeight="40.0" prefWidth="200.0" styleClass="hbox1">
          <children>
-            <TextField promptText="Password" styleClass="email" HBox.hgrow="ALWAYS">
+            <PasswordField fx:id="fldPassword" promptText="Password" styleClass="email" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets left="20.0" right="20.0" top="20.0" />
-               </HBox.margin></TextField>
+               </HBox.margin></PasswordField>
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="248.0" prefHeight="40.0" prefWidth="200.0" styleClass="hbox1">
-         <children>
-            <TextField promptText="Username" styleClass="email" HBox.hgrow="ALWAYS">
-               <HBox.margin>
-                  <Insets left="20.0" right="20.0" top="20.0" />
-               </HBox.margin>
-            </TextField>
-         </children>
-      </HBox>
-      <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="444.0" styleClass="trans-btn-white-border" text="Sign in">
+      <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="444.0" styleClass="trans-btn-white-border" text="Sign in" onAction="#ActionSignIn">
          <VBox.margin>
             <Insets left="20.0" right="20.0" top="20.0" />
          </VBox.margin></Button>

@@ -19,6 +19,11 @@ public class VehicleDAOXml implements VehicleDAO {
     }
 
     @Override
+    public void addUser(User user) {
+
+    }
+
+    @Override
     public void addOwner(Owner owner) {
 
     }

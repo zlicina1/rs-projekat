@@ -6,6 +6,7 @@ public interface VehicleDAO {
     ObservableList<Owner> getOwners();
     ObservableList<Owner> getManufacturers();
     ObservableList<Owner> getVehicles();
+    void addUser(User user);
     void addOwner(Owner owner);
     void addVehicle(Vehicle vehicle);
     void addManufacturer(Manufacturer manufacturer);

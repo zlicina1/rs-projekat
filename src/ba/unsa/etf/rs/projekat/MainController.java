@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
@@ -17,6 +19,7 @@ public class MainController implements Initializable {
     @FXML
     private VBox vbox;
     private Parent fxml;
+    private SignInController SignInController;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -71,5 +74,10 @@ public class MainController implements Initializable {
         });
     }
 
-
+    @FXML
+    public void ActionSignIn(ActionEvent actionEvent) {
+        System.out.println("fdgfdgfd");
+        //   User newUser = new User(fldName.getText(),fldSurname.getText(),fldUsername.getText(),fldEmail.getText(),fldPassword.getText());
+        //    daoBase.addUser(newUser);
+    }
 }
