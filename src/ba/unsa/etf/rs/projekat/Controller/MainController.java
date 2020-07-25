@@ -1,4 +1,4 @@
-package ba.unsa.etf.rs.projekat;
+package ba.unsa.etf.rs.projekat.Controller;
 
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -6,8 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
@@ -19,7 +17,7 @@ public class MainController implements Initializable {
     @FXML
     private VBox vbox;
     private Parent fxml;
-    private SignInController SignInController;
+    private ba.unsa.etf.rs.projekat.Controller.SignInController SignInController;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

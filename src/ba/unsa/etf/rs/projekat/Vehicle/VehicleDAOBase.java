@@ -1,5 +1,6 @@
-package ba.unsa.etf.rs.projekat;
+package ba.unsa.etf.rs.projekat.Vehicle;
 
+import ba.unsa.etf.rs.projekat.*;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
@@ -31,6 +32,7 @@ public class VehicleDAOBase implements VehicleDAO {
         try {
             getIdUserPs = connection.prepareStatement("SELECT MAX(user_id) + 1 FROM User");
             addUserPs = connection.prepareStatement("INSERT INTO User VALUES (?,?,?,?,?,?)");
+            getUserPs = connection.prepareStatement("SELECT name, surname FROM User WHERE (username=? or email=?) AND password=?");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -74,6 +76,19 @@ public class VehicleDAOBase implements VehicleDAO {
             addUserPs.setString(5,user.getEmail());
             addUserPs.setString(6,user.getPassword());
             addUserPs.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void getUser(String usernameOrEmail, String password) {
+        try {
+            getUserPs.setString(1,usernameOrEmail);
+            getUserPs.setString(2,usernameOrEmail);
+            getUserPs.setString(3,password);
+            ResultSet resultSet1 = getUserPs.executeQuery();
+            System.out.println(resultSet1.next());
         } catch (SQLException e) {
             e.printStackTrace();
         }

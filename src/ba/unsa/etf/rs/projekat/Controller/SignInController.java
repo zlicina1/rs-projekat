@@ -1,5 +1,7 @@
-package ba.unsa.etf.rs.projekat;
+package ba.unsa.etf.rs.projekat.Controller;
 
+import ba.unsa.etf.rs.projekat.User;
+import ba.unsa.etf.rs.projekat.Vehicle.VehicleDAOBase;
 import javafx.event.ActionEvent;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -20,6 +22,6 @@ public class SignInController {
     public void ActionSignIn(ActionEvent actionEvent) {
         user = new User(fldName.getText(),fldSurname.getText(),fldUsername.getText(),fldEmail.getText(),fldPassword.getText());
         daoBase.addUser(user);
-        System.out.println("Registrovan korisnik!");
+        System.out.println("Registered new user!");
     }
 }

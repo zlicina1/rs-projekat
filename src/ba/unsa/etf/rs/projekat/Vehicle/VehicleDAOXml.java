@@ -1,5 +1,8 @@
-package ba.unsa.etf.rs.projekat;
+package ba.unsa.etf.rs.projekat.Vehicle;
 
+import ba.unsa.etf.rs.projekat.*;
+import ba.unsa.etf.rs.projekat.Vehicle.Vehicle;
+import ba.unsa.etf.rs.projekat.Vehicle.VehicleDAO;
 import javafx.collections.ObservableList;
 
 public class VehicleDAOXml implements VehicleDAO {
@@ -45,6 +48,11 @@ public class VehicleDAOXml implements VehicleDAO {
 
     @Override
     public void addFeul(Fuel fuel) {
+
+    }
+
+    @Override
+    public void getUser(String string1, String string2) {
 
     }
 

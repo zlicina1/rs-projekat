@@ -1,5 +1,9 @@
-package ba.unsa.etf.rs.projekat;
+package ba.unsa.etf.rs.projekat.Vehicle;
 
+import ba.unsa.etf.rs.projekat.Fuel;
+import ba.unsa.etf.rs.projekat.Location;
+import ba.unsa.etf.rs.projekat.Manufacturer;
+import ba.unsa.etf.rs.projekat.Owner;
 import javafx.beans.property.*;
 
 public class Vehicle {
