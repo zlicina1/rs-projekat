@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="680.0" prefWidth="980.0" styleClass="parent" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rs.projekat.MainController">
+   <stylesheets>
+      <URL value="@/css/login.css" />
+   </stylesheets>
+   <children>
+      <Pane layoutX="2.0" layoutY="140.0" prefHeight="400.0" prefWidth="980.0" styleClass="pane">
+         <children>
+            <Label layoutX="21.0" layoutY="134.0" text="Don't have an account?" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="21.0" layoutY="178.0" text="Fleet managment" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button layoutX="21.0" layoutY="212.0" mnemonicParsing="false" onAction="#open_SignUp" prefHeight="32.0" prefWidth="93.0" styleClass="trans-btn-white-border" text="Sign Up" />
+            <Label layoutX="731.0" layoutY="136.0" text="Have an account?" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="731.0" layoutY="180.0" text="Fleet managment" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button layoutX="731.0" layoutY="214.0" mnemonicParsing="false" onAction="#open_SignIn" prefHeight="32.0" prefWidth="93.0" styleClass="trans-btn-white-border" text="Sign In" />
+            <VBox fx:id="vbox" layoutX="21.0" layoutY="-49.0" prefHeight="480.0" prefWidth="480.0" styleClass="vbox" />
+         </children></Pane>
+   </children>
+</AnchorPane>
