@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" styleClass="blue-panel" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="ba.unsa.etf.rs.projekat.Controller.SignInController">
+<VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="480.0" styleClass="blue-panel" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rs.projekat.Controller.SignInController">
     <stylesheets>
        <URL value="@/css/login.css" />
    </stylesheets>
@@ -24,45 +23,128 @@ fx:controller="ba.unsa.etf.rs.projekat.Controller.SignInController">
             <TextField fx:id="fldName" promptText="Name" styleClass="email" HBox.hgrow="ALWAYS" />
          </children>
          <VBox.margin>
-            <Insets left="20.0" right="20.0" top="20.0" />
+            <Insets left="20.0" right="20.0" top="0.0" />
          </VBox.margin>
       </HBox>
+      <Label fx:id="LabelValidName" textFill="#d73737">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets left="30.0" />
+         </padding>
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
         <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0" styleClass="hbox1">
             <children>
                 <TextField fx:id="fldSurname" promptText="Surname" styleClass="email" HBox.hgrow="ALWAYS" />
             </children>
             <VBox.margin>
-                <Insets left="20.0" right="20.0" top="20.0" />
+                <Insets left="20.0" right="20.0" top="0.0" />
             </VBox.margin>
         </HBox>
-        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="248.0" prefHeight="40.0" prefWidth="200.0" styleClass="hbox1">
-            <children>
-                <TextField fx:id="fldUsername" promptText="Username" styleClass="email" HBox.hgrow="ALWAYS">
-                    <HBox.margin>
-                        <Insets left="20.0" right="20.0" top="20.0" />
-                    </HBox.margin>
-                </TextField>
-            </children>
-        </HBox>
+        <Label fx:id="LabelValidSurname" textFill="#d73737">
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+            <padding>
+                <Insets left="30.0" />
+            </padding>
+         <font>
+            <Font size="13.0" />
+         </font>
+        </Label>
         <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0" styleClass="hbox1">
             <children>
-                <TextField fx:id="fldEmail" promptText="Email" styleClass="email" HBox.hgrow="ALWAYS" />
+                <TextField fx:id="fldUsername" promptText="Username" styleClass="email" HBox.hgrow="ALWAYS" />
             </children>
             <VBox.margin>
-                <Insets left="20.0" right="20.0" top="20.0" />
+                <Insets left="20.0" right="20.0" top="0.0" />
             </VBox.margin>
         </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="245.0" prefHeight="40.0" prefWidth="200.0" styleClass="hbox1">
-         <children>
-            <PasswordField fx:id="fldPassword" promptText="Password" styleClass="email" HBox.hgrow="ALWAYS">
+        <Label fx:id="LabelValidUsername" textFill="#d73737">
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+            <padding>
+                <Insets left="30.0" />
+            </padding>
+         <font>
+            <Font size="13.0" />
+         </font>
+        </Label>
+        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0" styleClass="hbox1">
+            <children>
+                <TextField fx:id="fldEmail" promptText="Email" styleClass="email" HBox.hgrow="ALWAYS">
                <HBox.margin>
-                  <Insets left="20.0" right="20.0" top="20.0" />
-               </HBox.margin></PasswordField>
-         </children>
-      </HBox>
-      <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="444.0" styleClass="trans-btn-white-border" text="Sign in" onAction="#ActionSignIn">
+                  <Insets bottom="20.0" />
+               </HBox.margin></TextField>
+            </children>
+            <VBox.margin>
+                <Insets left="20.0" right="20.0" top="0.0" />
+            </VBox.margin>
+        </HBox>
+        <Label fx:id="LabelValidEmail" textFill="#d73737">
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+            <padding>
+                <Insets left="30.0" />
+            </padding>
+         <font>
+            <Font size="13.0" />
+         </font>
+        </Label>
+
+        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0" styleClass="hbox1">
+            <children>
+                <PasswordField fx:id="fldPassword" promptText="Password" styleClass="email" HBox.hgrow="ALWAYS">
+                    <HBox.margin>
+                        <Insets bottom="20.0" />
+                    </HBox.margin></PasswordField>
+            </children>
+            <VBox.margin>
+                <Insets left="20.0" right="20.0" top="0.0" />
+            </VBox.margin>
+        </HBox>
+        <Label fx:id="LabelValidPassword" textFill="#d73737">
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+            <padding>
+                <Insets left="30.0" />
+            </padding>
+         <font>
+            <Font size="13.0" />
+         </font>
+        </Label>
+        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0" styleClass="hbox1">
+            <children>
+                <PasswordField fx:id="fldPassword2" promptText="Repeat Password" styleClass="email" HBox.hgrow="ALWAYS">
+                    <HBox.margin>
+                        <Insets bottom="20.0" />
+                    </HBox.margin></PasswordField>
+            </children>
+            <VBox.margin>
+                <Insets left="20.0" right="20.0" top="0.0" />
+            </VBox.margin>
+        </HBox>
+        <Label fx:id="LabelValidPassword2" textFill="#d73737">
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+            <padding>
+                <Insets left="30.0" />
+            </padding>
+         <font>
+            <Font size="13.0" />
+         </font>
+        </Label>
+      <Button mnemonicParsing="false" onAction="#ActionSignIn" prefHeight="27.0" prefWidth="444.0" styleClass="trans-btn-white-border" text="Sign in">
          <VBox.margin>
-            <Insets left="20.0" right="20.0" top="20.0" />
+            <Insets left="20.0" right="20.0" top="0.0" />
          </VBox.margin></Button>
    </children>
 </VBox>

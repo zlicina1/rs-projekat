@@ -33,3 +33,10 @@
 .hbox1{
     -fx-background-color: transparent;
 }
+
+.fieldIsIncorrect {
+   -fx-color: lightpink;
+}
+.fieldIsCorrect{
+    -fx-control-inner-background: greenyellow;
+}
