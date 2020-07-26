@@ -27,11 +27,9 @@ import java.io.IOException;
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class MainController {
-    public ImageView imageIconProfile;
     public Label LabelWelcome;
     public TextArea textArea1;
     public Label LabelProfile;
-    public ImageView imageIconHome;
     public Hyperlink firstLink;
     public Hyperlink secondLink;
     public TextArea textArea2;
@@ -62,9 +60,7 @@ public class MainController {
     @FXML
     public void initialize(){
         //tab1
-        Image image = new Image("/img/icons8-landlord-80.png");
         LabelWelcome.setText("Welcome ");
-        imageIconProfile.setImage(image);
         textArea1.setText("Fleet management is the management of:\n" +
                 "\n" +
                 "Commercial motor vehicles such as cars, vans, trucks, specialist vehicles (such as mobile construction machinery), forklifts, and trailers\n" +

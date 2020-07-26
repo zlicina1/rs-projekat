@@ -4,7 +4,10 @@ import ba.unsa.etf.rs.projekat.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.sql.*;
+import java.util.Scanner;
 
 public class VehicleDAOBase implements VehicleDAO {
     private static VehicleDAOBase instance = null;
@@ -71,12 +74,14 @@ public class VehicleDAOBase implements VehicleDAO {
 //            vehicle.setSpeed(resultSet.getDouble(7));
 //            vehicle.setDrivingTime(resultSet.getDouble(8));
 //            vehicle.setFuel(getFeul(resultSet.getInt(9)));
-            Vehicle vehicle1 = new Vehicle(id,resultSet.getString(2),
-                    getManufacturer(resultSet.getInt(3)),
-                    getOwner(resultSet.getInt(4)),resultSet.getInt(5),true,
-                            getLocation(resultSet.getInt(7)),resultSet.getDouble(8),
-                                    resultSet.getDouble(9), getFuel(resultSet.getInt(10)));
-            vehicle = vehicle1;
+            if(resultSet.next()) {
+                Vehicle vehicle1 = new Vehicle(id, resultSet.getString(2),
+                        getManufacturer(resultSet.getInt(3)),
+                        getOwner(resultSet.getInt(4)), resultSet.getInt(5), true,
+                        getLocation(resultSet.getInt(7)), resultSet.getDouble(8),
+                        resultSet.getDouble(9), getFuel(resultSet.getInt(10)));
+                vehicle = vehicle1;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -88,8 +93,10 @@ public class VehicleDAOBase implements VehicleDAO {
         try {
             getFuelPs.setInt(1,anInt);
             ResultSet rs1 = getFuelPs.executeQuery();
-            Fuel fuel1 = new Fuel(rs1.getInt(1),rs1.getString(2),rs1.getDouble(3));
-            fuel = fuel1;
+            if(rs1.next()) {
+                Fuel fuel1 = new Fuel(rs1.getInt(1), rs1.getString(2), rs1.getDouble(3));
+                fuel = fuel1;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -142,8 +149,11 @@ public class VehicleDAOBase implements VehicleDAO {
         try {
             getManufacturerPs.setInt(1,id);
             ResultSet rs1 = getManufacturerPs.executeQuery();
-            Manufacturer manufacturer1 = new Manufacturer(id,rs1.getString(2));
-            manufacturer = manufacturer1;
+            if(rs1.next()) {
+                String s = rs1.getString(2);
+                Manufacturer manufacturer1 = new Manufacturer(id, s);
+                manufacturer = manufacturer1;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -262,5 +272,27 @@ public class VehicleDAOBase implements VehicleDAO {
     }
 
     private void regenerateBase() {
+            Scanner ulaz = null;
+            try {
+                ulaz = new Scanner(new FileInputStream("database.db.sql"));
+                String sqlUpit = "";
+                while (ulaz.hasNext()) {
+                    sqlUpit += ulaz.nextLine();
+                    if ( sqlUpit.length() > 1 && sqlUpit.charAt( sqlUpit.length()-1 ) == ';') {
+                        try {
+                            Statement stmt = connection.createStatement();
+                            stmt.execute(sqlUpit);
+                            sqlUpit = "";
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                ulaz.close();
+            } catch (FileNotFoundException e) {
+                System.out.println("Ne postoji SQL datoteka… nastavljam sa praznom bazom");
+            }
     }
+
+
 }

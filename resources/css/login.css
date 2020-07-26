@@ -40,3 +40,16 @@
 .fieldIsCorrect{
     -fx-control-inner-background: greenyellow;
 }
+
+#btnAdd{
+    -fx-graphic: url("/img/list-add.png");
+}
+#btnDelete{
+    -fx-graphic: url("/img/edit-delete.png");
+}
+#btnSignOut{
+    -fx-graphic: url("/img/application-exit.png");
+}
+#btnSignOut2{
+    -fx-graphic: url("/img/application-exit.png");
+}

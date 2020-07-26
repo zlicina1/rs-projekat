@@ -4,6 +4,7 @@ import ba.unsa.etf.rs.projekat.User;
 import ba.unsa.etf.rs.projekat.Vehicle.VehicleDAOBase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -62,6 +63,11 @@ public class SignInController {
         user = new User(fldName.getText(),fldSurname.getText(),fldUsername.getText(),fldEmail.getText(),fldPassword.getText());
         daoBase.addUser(user);
         System.out.println("Registered new user!");
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Infomation");
+        alert.setHeaderText("Redistered new user!");
+        alert.setContentText("Please now login and go to server!");
+        alert.showAndWait();
     }
 
     private boolean ValidationOfNameSurname(String name){

@@ -3,12 +3,10 @@
 <?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane prefHeight="400.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
->
+<GridPane prefHeight="400.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
     <stylesheets>
         <URL value="@/css/login.css" />
     </stylesheets>
@@ -63,11 +61,6 @@
                                             <Insets left="15.0" />
                                         </padding>
                                     </Label>
-                                    <ImageView fx:id="imageIconHome" fitHeight="102.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
-                                        <HBox.margin>
-                                            <Insets left="100.0" />
-                                        </HBox.margin>
-                                    </ImageView>
                                 </children>
                             </HBox>
                         </top>
@@ -125,7 +118,7 @@
                                     <Insets left="5.0" />
                                  </GridPane.margin>
                               </Label>
-                              <Button mnemonicParsing="false" onAction="#actionSignOut" prefHeight="26.0" prefWidth="64.0" styleClass="trans-btn-white-border" text="Sign out" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <Button fx:id="btnSignOut" mnemonicParsing="false" onAction="#actionSignOut" prefHeight="26.0" prefWidth="64.0" styleClass="trans-btn-white-border" text="" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                            </children>
                             </GridPane>
                         </center></BorderPane>
@@ -144,9 +137,9 @@
                      <bottom>
                         <ButtonBar prefHeight="40.0" prefWidth="200.0" styleClass="blue-panel" BorderPane.alignment="CENTER">
                           <buttons>
-                              <Button mnemonicParsing="false" onAction="#addAction" styleClass="trans-btn-white-border" text="Add vehicle" />
+                              <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#addAction" styleClass="trans-btn-white-border" text="Add vehicle" />
                             <Button mnemonicParsing="false" onAction="#editAction" styleClass="trans-btn-white-border" text="Edit vehicle" />
-                              <Button layoutX="319.0" layoutY="17.0" mnemonicParsing="false" onAction="#deleteAction" styleClass="trans-btn-white-border" text="Delete vehicle" />
+                              <Button fx:id="btnDelete" layoutX="319.0" layoutY="17.0" mnemonicParsing="false" onAction="#deleteAction" styleClass="trans-btn-white-border" text="Delete vehicle" />
                           </buttons>
                         </ButtonBar>
                      </bottom>
@@ -180,11 +173,6 @@
                                     <Insets left="15.0" />
                                  </padding>
                               </Label>
-                              <ImageView fx:id="imageIconProfile" fitHeight="102.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true" styleClass="vbox">
-                                 <HBox.margin>
-                                    <Insets left="100.0" />
-                                 </HBox.margin>
-                              </ImageView>
                            </children>
                         </HBox>
                      </top>
@@ -231,7 +219,7 @@
                               <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                 <buttons>
                                     <Button mnemonicParsing="false" onAction="#actionUpdate" styleClass="trans-btn-white-border" text="Update" />
-                                    <Button layoutX="306.0" layoutY="16.0" mnemonicParsing="false" onAction="#actionSignOut" styleClass="trans-btn-white-border" text="Sign out" />
+                                    <Button fx:id="btnSignOut2" layoutX="306.0" layoutY="16.0" mnemonicParsing="false" onAction="#actionSignOut" styleClass="trans-btn-white-border" text="Sign out" />
                                 </buttons>
                               </ButtonBar>
                               <Label styleClass="email" text="Surname" GridPane.rowIndex="2">
