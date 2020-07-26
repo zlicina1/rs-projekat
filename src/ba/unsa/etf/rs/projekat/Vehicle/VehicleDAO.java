@@ -15,5 +15,6 @@ public interface VehicleDAO {
     void addLocation(Location location);
     void addFeul(Fuel fuel);
     User getUser(String string1, String string2);
+    void updateUser(User user);
     void close();
 }

@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
@@ -36,6 +37,7 @@ public class SingUpController {
             alert.setContentText("User: " + user.getName() + ", " + user.getSurname() + "\nusername: " + user.getUsername());
             alert.showAndWait();
 
+            int id;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
             MainController mainController = new MainController(user);
             loader.setController(mainController);
@@ -44,6 +46,10 @@ public class SingUpController {
             newStage.setTitle("User - Fleet managment");
             newStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             newStage.show();
+
+            Scene scene = fldPassword.getScene();
+            Stage oldStage = (Stage) scene.getWindow();
+            oldStage.close();
         }
         else {
             LabelCorrectUser.setText("This user does not exist!\nPlease try again!");

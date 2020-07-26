@@ -8,7 +8,7 @@ import java.sql.*;
 public class VehicleDAOBase implements VehicleDAO {
     private static VehicleDAOBase instance = null;
     private Connection connection;
-    private PreparedStatement getUserPs, addUserPs, getIdUserPs;
+    private PreparedStatement getUserPs, addUserPs, getIdUserPs, updateUserPs;
 
     public VehicleDAOBase() {
         String url = "jdbc:sqlite:database.db";
@@ -33,7 +33,7 @@ public class VehicleDAOBase implements VehicleDAO {
             getIdUserPs = connection.prepareStatement("SELECT MAX(user_id) + 1 FROM User");
             addUserPs = connection.prepareStatement("INSERT INTO User VALUES (?,?,?,?,?,?)");
             getUserPs = connection.prepareStatement("SELECT * FROM User WHERE (username=? or email=?) AND password=?");
-
+            updateUserPs = connection.prepareStatement("UPDATE User SET name=?,surname=?,username=?,email=?,password=? WHERE user_id=?");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -90,16 +90,29 @@ public class VehicleDAOBase implements VehicleDAO {
             getUserPs.setString(3, password);
             ResultSet resultSet1 = getUserPs.executeQuery();
             if (resultSet1.next()) {
-                int id = resultSet1.getInt(1);
-                String s = String.valueOf(id);
-                System.out.println(resultSet1.getString(2));
-                user = new User(resultSet1.getString(2), resultSet1.getString(3),
+                user = new User(resultSet1.getString(1),resultSet1.getString(2), resultSet1.getString(3),
                         resultSet1.getString(4), resultSet1.getString(5),resultSet1.getString(6));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return user;
+    }
+
+    @Override
+    public void updateUser(User user) {
+        try {
+            updateUserPs.setString(1,user.getName());
+            updateUserPs.setString(2,user.getSurname());
+            updateUserPs.setString(3,user.getUsername());
+            updateUserPs.setString(4,user.getEmail());
+            updateUserPs.setString(5,user.getPassword());
+            updateUserPs.setString(6,user.getId());
+            updateUserPs.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override

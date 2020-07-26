@@ -1,11 +1,20 @@
 package ba.unsa.etf.rs.projekat;
 
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class User {
-    private SimpleStringProperty name, surname, username, email, password;
+    private SimpleStringProperty id, name, surname, username, email, password;
 
-    public User(String name, String surname, String username, String email, String password) {
+    public User( String name, String surname, String username, String email, String password) {
+        this.name = new SimpleStringProperty(name);
+        this.surname = new SimpleStringProperty(surname);
+        this.username = new SimpleStringProperty(username);
+        this.email = new SimpleStringProperty(email);
+        this.password = new SimpleStringProperty(password);
+    }
+    public User(String id, String name, String surname, String username, String email, String password) {
+        this.id = new  SimpleStringProperty(id);
         this.name = new SimpleStringProperty(name);
         this.surname = new SimpleStringProperty(surname);
         this.username = new SimpleStringProperty(username);
@@ -14,6 +23,18 @@ public class User {
     }
 
     public User() {
+    }
+
+    public String getId() {
+        return id.get();
+    }
+
+    public SimpleStringProperty idProperty() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id.set(id);
     }
 
     public String getName() {
@@ -79,7 +100,8 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "name=" + name +
+                "id=" + id +
+                ", name=" + name +
                 ", surname=" + surname +
                 ", username=" + username +
                 ", email=" + email +

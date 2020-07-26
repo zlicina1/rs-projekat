@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane prefHeight="400.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="ba.unsa.etf.rs.projekat.Controller.MainController">
+<GridPane prefHeight="400.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
     <stylesheets>
         <URL value="@/css/login.css" />
     </stylesheets>
@@ -125,7 +124,7 @@ fx:controller="ba.unsa.etf.rs.projekat.Controller.MainController">
                                     <Insets left="5.0" />
                                  </GridPane.margin>
                               </Label>
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="64.0" styleClass="trans-btn-white-border" onAction="#actionSignOut" text="Sign out" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <Button mnemonicParsing="false" onAction="#actionSignOut" prefHeight="26.0" prefWidth="64.0" styleClass="trans-btn-white-border" text="Sign out" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                            </children>
                             </GridPane>
                         </center></BorderPane>
@@ -169,68 +168,80 @@ fx:controller="ba.unsa.etf.rs.projekat.Controller.MainController">
                           </columnConstraints>
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <TextField fx:id="fldName" maxWidth="200.0" styleClass="email" GridPane.columnIndex="1">
+                               <TextField fx:id="fldId" editable="false" maxWidth="200.0" styleClass="email" GridPane.columnIndex="1">
+                                   <GridPane.margin>
+                                       <Insets right="12.0" />
+                                   </GridPane.margin></TextField>
+                              <TextField fx:id="fldName" maxWidth="200.0" styleClass="email" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                               <GridPane.margin>
+                                   <Insets right="12.0" />
+                                 </GridPane.margin></TextField>
+                              <TextField fx:id="fldSurname" maxWidth="200.0" styleClass="email" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets right="12.0" />
                                  </GridPane.margin></TextField>
-                              <TextField fx:id="fldSurname" maxWidth="200.0" styleClass="email" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <TextField fx:id="fldUsername" maxWidth="200.0" styleClass="email" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                  <GridPane.margin>
                                     <Insets right="12.0" />
                                  </GridPane.margin></TextField>
-                              <TextField fx:id="fldUsername" maxWidth="200.0" styleClass="email" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <TextField fx:id="fldEmail" maxWidth="200.0" styleClass="email" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                  <GridPane.margin>
                                     <Insets right="12.0" />
                                  </GridPane.margin></TextField>
-                              <TextField fx:id="fldEmail" maxWidth="200.0" styleClass="email" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                              <TextField fx:id="fldPassword" maxWidth="200.0" styleClass="email" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                  <GridPane.margin>
                                     <Insets right="12.0" />
                                  </GridPane.margin></TextField>
-                              <TextField fx:id="fldPassword" maxWidth="200.0" styleClass="email" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                                 <GridPane.margin>
-                                    <Insets right="12.0" />
-                                 </GridPane.margin></TextField>
-                              <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                              <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                 <buttons>
                                     <Button mnemonicParsing="false" onAction="#actionUpdate" styleClass="trans-btn-white-border" text="Update" />
                                     <Button layoutX="306.0" layoutY="16.0" mnemonicParsing="false" onAction="#actionSignOut" styleClass="trans-btn-white-border" text="Sign out" />
                                 </buttons>
                               </ButtonBar>
-                              <Label styleClass="email" text="Surname" GridPane.rowIndex="1">
+                              <Label styleClass="email" text="Surname" GridPane.rowIndex="2">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                                  <GridPane.margin>
                                     <Insets left="20.0" />
                                  </GridPane.margin></Label>
-                              <Label styleClass="email" text="Username" GridPane.rowIndex="2">
+                              <Label styleClass="email" text="Username" GridPane.rowIndex="3">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                                  <GridPane.margin>
                                     <Insets left="20.0" />
                                  </GridPane.margin></Label>
-                              <Label styleClass="email" text="Email" GridPane.rowIndex="3">
+                              <Label styleClass="email" text="Email" GridPane.rowIndex="4">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                                  <GridPane.margin>
                                     <Insets left="20.0" />
                                  </GridPane.margin></Label>
-                              <Label prefHeight="22.0" prefWidth="42.0" styleClass="email" text="Name">
+                              <Label prefHeight="22.0" prefWidth="42.0" styleClass="email" text="Name" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                                  <GridPane.margin>
                                     <Insets left="20.0" />
                                  </GridPane.margin></Label>
-                              <Label styleClass="email" text="Password" GridPane.rowIndex="4">
+                               <Label prefHeight="22.0" prefWidth="42.0" styleClass="email" text="Id">
+                               <font>
+                                   <Font size="14.0" />
+                               </font>
+                               <GridPane.margin>
+                                   <Insets left="20.0" />
+                               </GridPane.margin></Label>
+                              <Label styleClass="email" text="Password" GridPane.rowIndex="5">
                                  <font>
                                     <Font size="14.0" />
                                  </font>

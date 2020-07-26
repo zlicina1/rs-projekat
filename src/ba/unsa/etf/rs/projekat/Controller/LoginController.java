@@ -26,7 +26,7 @@ public class LoginController implements Initializable {
         t.play();
         t.setOnFinished((e) ->{
             try{
-                fxml = FXMLLoader.load(getClass().getResource("/fxml/signIn.fxml"));
+                fxml = FXMLLoader.load(getClass().getResource("/fxml/signUp.fxml"));
                 vbox.getChildren().removeAll();
                 vbox.getChildren().setAll(fxml);
             }
