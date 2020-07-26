@@ -32,7 +32,7 @@ public class VehicleDAOBase implements VehicleDAO {
         try {
             getIdUserPs = connection.prepareStatement("SELECT MAX(user_id) + 1 FROM User");
             addUserPs = connection.prepareStatement("INSERT INTO User VALUES (?,?,?,?,?,?)");
-            getUserPs = connection.prepareStatement("SELECT name, surname FROM User WHERE (username=? or email=?) AND password=?");
+            getUserPs = connection.prepareStatement("SELECT * FROM User WHERE (username=? or email=?) AND password=?");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -82,17 +82,24 @@ public class VehicleDAOBase implements VehicleDAO {
     }
 
     @Override
-    public void getUser(String usernameOrEmail, String password) {
+    public User getUser(String usernameOrEmail, String password) {
+        User user = null;
         try {
-            getUserPs.setString(1,usernameOrEmail);
-            getUserPs.setString(2,usernameOrEmail);
-            getUserPs.setString(3,password);
+            getUserPs.setString(1, usernameOrEmail);
+            getUserPs.setString(2, usernameOrEmail);
+            getUserPs.setString(3, password);
             ResultSet resultSet1 = getUserPs.executeQuery();
-            System.out.println(resultSet1.next());
+            if (resultSet1.next()) {
+                int id = resultSet1.getInt(1);
+                String s = String.valueOf(id);
+                System.out.println(resultSet1.getString(2));
+                user = new User(resultSet1.getString(2), resultSet1.getString(3),
+                        resultSet1.getString(4), resultSet1.getString(5),resultSet1.getString(6));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        return user;
     }
 
     @Override

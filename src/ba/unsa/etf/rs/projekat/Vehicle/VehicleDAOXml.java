@@ -5,6 +5,8 @@ import ba.unsa.etf.rs.projekat.Vehicle.Vehicle;
 import ba.unsa.etf.rs.projekat.Vehicle.VehicleDAO;
 import javafx.collections.ObservableList;
 
+import java.net.UnknownServiceException;
+
 public class VehicleDAOXml implements VehicleDAO {
     @Override
     public ObservableList<Owner> getOwners() {
@@ -52,8 +54,8 @@ public class VehicleDAOXml implements VehicleDAO {
     }
 
     @Override
-    public void getUser(String string1, String string2) {
-
+    public User getUser(String string1, String string2) {
+        return null;
     }
 
     @Override
