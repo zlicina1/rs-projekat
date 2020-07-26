@@ -7,7 +7,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane prefHeight="400.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane prefHeight="400.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
+>
     <stylesheets>
         <URL value="@/css/login.css" />
     </stylesheets>
@@ -133,7 +134,23 @@
             <Tab text="Your vehicles">
                 <content>
                     <BorderPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="parent">
-                     <center>
+                     <left>
+                        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <ChoiceBox fx:id="choiceVehicles" prefWidth="150.0" styleClass="blue-panel" />
+                           </children>
+                        </VBox>
+                     </left>
+                     <bottom>
+                        <ButtonBar prefHeight="40.0" prefWidth="200.0" styleClass="blue-panel" BorderPane.alignment="CENTER">
+                          <buttons>
+                              <Button mnemonicParsing="false" onAction="#addAction" styleClass="trans-btn-white-border" text="Add vehicle" />
+                            <Button mnemonicParsing="false" onAction="#editAction" styleClass="trans-btn-white-border" text="Edit vehicle" />
+                              <Button layoutX="319.0" layoutY="17.0" mnemonicParsing="false" onAction="#deleteAction" styleClass="trans-btn-white-border" text="Delete vehicle" />
+                          </buttons>
+                        </ButtonBar>
+                     </bottom>
+                     <right>
                         <TableView fx:id="tableVehicles" prefHeight="343.0" prefWidth="407.0" styleClass="blue-panel" BorderPane.alignment="CENTER">
                           <columns>
                             <TableColumn fx:id="tcName" text="Name" />
@@ -143,14 +160,7 @@
                               <TableColumn fx:id="tcStatus" prefWidth="51.4000244140625" text="Status" />
                           </columns>
                         </TableView>
-                     </center>
-                     <left>
-                        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <ChoiceBox fx:id="choiceVehicles" prefWidth="150.0" styleClass="blue-panel" />
-                           </children>
-                        </VBox>
-                     </left></BorderPane>
+                     </right></BorderPane>
                 </content>
             </Tab>
           <Tab text="Your profile">

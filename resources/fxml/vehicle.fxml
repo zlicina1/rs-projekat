@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="271.0" prefWidth="547.0" styleClass="blue-panel" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+    <stylesheets>
+        <URL value="@/css/login.css" />
+    </stylesheets>
+        <top>
+            <HBox BorderPane.alignment="CENTER">
+                <children>
+                    <Label fx:id="LabelProfile" prefHeight="86.0" prefWidth="362.0" text="Vehicle: " textFill="#2196f3">
+                        <font>
+                            <Font name="Arial Black" size="33.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets />
+                        </HBox.margin>
+                        <padding>
+                            <Insets left="15.0" />
+                        </padding>
+                    </Label>
+                    <ImageView fx:id="imageIconProfile" fitHeight="102.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true" styleClass="vbox">
+                        <HBox.margin>
+                            <Insets left="100.0" />
+                        </HBox.margin>
+                    </ImageView>
+                </children>
+            </HBox>
+        </top>
+   <right>
+            <GridPane prefHeight="182.0" prefWidth="494.0" BorderPane.alignment="CENTER">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="233.0" minWidth="10.0" prefWidth="105.6" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="233.0" minWidth="10.0" prefWidth="105.6" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <children>
+                    <TextField fx:id="fldIdVehicle" editable="false" maxWidth="200.0" styleClass="email" GridPane.columnIndex="1">
+                        <GridPane.margin>
+                            <Insets right="12.0" />
+                        </GridPane.margin></TextField>
+                    <TextField fx:id="fldNameVehicle" maxWidth="200.0" styleClass="email" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <GridPane.margin>
+                            <Insets right="12.0" />
+                        </GridPane.margin></TextField>
+                    <TextField fx:id="fldManuVehicle" editable="false" maxWidth="200.0" styleClass="email" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <GridPane.margin>
+                            <Insets right="12.0" />
+                        </GridPane.margin></TextField>
+                    <TextField fx:id="fldOwnerVehicle" editable="false" maxWidth="200.0" styleClass="email" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <GridPane.margin>
+                            <Insets right="12.0" />
+                        </GridPane.margin></TextField>
+                    <TextField fx:id="fldStatusVehicle" maxWidth="200.0" styleClass="email" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <GridPane.margin>
+                            <Insets right="12.0" />
+                        </GridPane.margin></TextField>
+                    <TextField fx:id="fldAgeVehicle" maxWidth="200.0" styleClass="email" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                        <GridPane.margin>
+                            <Insets right="12.0" />
+                        </GridPane.margin></TextField>
+                    <ButtonBar GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.rowSpan="2">
+                        <buttons>
+                            <Button mnemonicParsing="false" onAction="#ActionOk" styleClass="trans-btn-white-border" text="Ok" />
+                            <Button layoutX="306.0" layoutY="16.0" mnemonicParsing="false" onAction="#cencelAction" styleClass="trans-btn-white-border" text="Cencel" />
+                        </buttons>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="15.0" />
+               </padding>
+                    </ButtonBar>
+                    <Label styleClass="email" text="Manufacturer" GridPane.rowIndex="2">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                        <GridPane.margin>
+                            <Insets left="20.0" />
+                        </GridPane.margin></Label>
+                    <Label styleClass="email" text="Owner" GridPane.rowIndex="3">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                        <GridPane.margin>
+                            <Insets left="20.0" />
+                        </GridPane.margin></Label>
+                    <Label styleClass="email" text="Status" GridPane.rowIndex="4">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                        <GridPane.margin>
+                            <Insets left="20.0" />
+                        </GridPane.margin></Label>
+                    <Label prefHeight="22.0" prefWidth="42.0" styleClass="email" text="Name" GridPane.rowIndex="1">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                        <GridPane.margin>
+                            <Insets left="20.0" />
+                        </GridPane.margin></Label>
+                    <Label prefHeight="22.0" prefWidth="42.0" styleClass="email" text="Id">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                        <GridPane.margin>
+                            <Insets left="20.0" />
+                        </GridPane.margin></Label>
+                    <Label styleClass="email" text="Age" GridPane.rowIndex="5">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                        <GridPane.margin>
+                            <Insets left="20.0" />
+                        </GridPane.margin></Label>
+                </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" />
+         </BorderPane.margin>
+            </GridPane>
+   </right></BorderPane>

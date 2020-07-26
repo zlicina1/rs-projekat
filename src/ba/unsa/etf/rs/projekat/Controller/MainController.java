@@ -51,6 +51,7 @@ public class MainController {
     public TableColumn tcStatus;
     private VehicleDAOBase dao;
     public ObservableList<Vehicle> listVehicles = FXCollections.emptyObservableList();
+    public Vehicle currentVehicle;
 
     public MainController(User user) {
         this.user = user;
@@ -114,5 +115,32 @@ public class MainController {
         if (YesOrNo == 0){
             dao.updateUser(user1);
         }
+    }
+
+    public void addAction(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/vehicle.fxml"));
+        VehicleController vehicleController = new VehicleController(null);
+        loader.setController(vehicleController);
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+        newStage.setTitle("User - Fleet managment");
+        newStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        newStage.show();
+    }
+
+    public void editAction(ActionEvent actionEvent) throws IOException {
+        currentVehicle = tableVehicles.getSelectionModel().getSelectedItem();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/vehicle.fxml"));
+        VehicleController vehicleController = new VehicleController(currentVehicle);
+        loader.setController(vehicleController);
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+        newStage.setTitle("User - Fleet managment");
+        newStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        newStage.show();
+    }
+
+    public void deleteAction(ActionEvent actionEvent) {
+
     }
 }
