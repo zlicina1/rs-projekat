@@ -1,12 +1,17 @@
 package ba.unsa.etf.rs.projekat.Controller;
 
 import ba.unsa.etf.rs.projekat.User;
+import ba.unsa.etf.rs.projekat.Vehicle.VehicleDAOBase;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 public class MainController {
     public ImageView imageIconProfile;
@@ -18,9 +23,16 @@ public class MainController {
     public Hyperlink secondLink;
     public TextArea textArea2;
     public User user;
+    public TextField fldName;
+    public TextField fldSurname;
+    public TextField fldUsername;
+    public TextField fldEmail;
+    public TextField fldPassword;
+    private VehicleDAOBase dao;
 
     public MainController(User user) {
         this.user = user;
+        dao = VehicleDAOBase.getInstance();
     }
 
     @FXML
@@ -41,6 +53,21 @@ public class MainController {
         textArea2.setText("In the UK, in April 2008, the Corporate Manslaughter Act was strengthened to target company directors as well as their drivers in cases of road deaths involving vehicles used on business. The Police have said they now treat every road death as ‘an unlawful killing’ and have the power to seize company records and computers during their investigations. They will bring prosecutions against company directors who fail to provide clear policies and guidance for their employees driving at work.[citation needed]Unfortunately, in the UK a number of businesses are failing to meet their duty of care. In particular " +
                 "\nprosecutions can be brought against company directors for failing to meet their duty of " +
                 "\ncare and allowing HGV driver hours to exceed the legal limits.");
+        fldName.setText(user.getName());
+        fldSurname.setText(user.getSurname());
+        fldUsername.setText(user.getUsername());
+        fldEmail.setText(user.getEmail());
+        fldPassword.setText(user.getPassword());
     }
 
+    public void actionSignOut(ActionEvent actionEvent) {
+        Scene scene = textArea1.getScene();
+        Stage stage = (Stage) scene.getWindow();
+        stage.close();
+    }
+
+    public void actionUpdate(ActionEvent actionEvent) {
+        User user1 = new User(fldName.getText(),fldSurname.getText(),fldUsername.getText(),fldEmail.getText(),fldPassword.getText());
+
+    }
 }
