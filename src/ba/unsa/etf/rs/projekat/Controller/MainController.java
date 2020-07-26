@@ -74,18 +74,18 @@ public class MainController {
         Stage stage = (Stage) scene.getWindow();
         stage.close();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
-        Parent root = loader.load();
-        Stage newStage = new Stage();
-        newStage.setTitle("User - Fleet managment");
-        newStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        newStage.show();
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+//        Parent root = loader.load();
+//        Stage newStage = new Stage();
+//        newStage.setTitle("User - Fleet managment");
+//        newStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+//        newStage.show();
     }
 
     public void actionUpdate(ActionEvent actionEvent) {
         User user1 = new User(fldId.getText(),fldName.getText(),fldSurname.getText(),fldUsername.getText(),fldEmail.getText(),fldPassword.getText());
         int YesOrNo = JOptionPane.showConfirmDialog(null,"Are you sure you want to update the data?","Update user",JOptionPane.YES_NO_OPTION);
-        if (YesOrNo == 1){
+        if (YesOrNo == 0){
             dao.updateUser(user1);
         }
     }
