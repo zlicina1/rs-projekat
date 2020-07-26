@@ -7,7 +7,7 @@ import javafx.collections.ObservableList;
 public interface VehicleDAO {
     ObservableList<Owner> getOwners();
     ObservableList<Owner> getManufacturers();
-    ObservableList<Owner> getVehicles();
+    ObservableList<Vehicle> getVehicles();
     void addUser(User user);
     void addOwner(Owner owner);
     void addVehicle(Vehicle vehicle);

@@ -19,7 +19,7 @@ public class VehicleDAOXml implements VehicleDAO {
     }
 
     @Override
-    public ObservableList<Owner> getVehicles() {
+    public ObservableList<Vehicle> getVehicles() {
         return null;
     }
 

@@ -1,13 +1,19 @@
 package ba.unsa.etf.rs.projekat.Controller;
 
+import ba.unsa.etf.rs.projekat.Location;
 import ba.unsa.etf.rs.projekat.User;
+import ba.unsa.etf.rs.projekat.Vehicle.Vehicle;
 import ba.unsa.etf.rs.projekat.Vehicle.VehicleDAOBase;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
@@ -36,15 +42,25 @@ public class MainController {
     public TextField fldUsername;
     public TextField fldEmail;
     public TextField fldPassword;
+    public TableView<Vehicle> tableVehicles;
+    public ChoiceBox choiceVehicles;
+    public TableColumn tcName;
+    public TableColumn tcManufacturer;
+    public TableColumn tcAge;
+    public TableColumn tcLocation;
+    public TableColumn tcStatus;
     private VehicleDAOBase dao;
+    public ObservableList<Vehicle> listVehicles = FXCollections.emptyObservableList();
 
     public MainController(User user) {
         this.user = user;
         dao = VehicleDAOBase.getInstance();
+        listVehicles = dao.getVehicles();
     }
 
     @FXML
     public void initialize(){
+        //tab1
         Image image = new Image("/img/icons8-landlord-80.png");
         LabelWelcome.setText("Welcome ");
         imageIconProfile.setImage(image);
@@ -61,6 +77,16 @@ public class MainController {
         textArea2.setText("In the UK, in April 2008, the Corporate Manslaughter Act was strengthened to target company directors as well as their drivers in cases of road deaths involving vehicles used on business. The Police have said they now treat every road death as ‘an unlawful killing’ and have the power to seize company records and computers during their investigations. They will bring prosecutions against company directors who fail to provide clear policies and guidance for their employees driving at work.[citation needed]Unfortunately, in the UK a number of businesses are failing to meet their duty of care. In particular " +
                 "\nprosecutions can be brought against company directors for failing to meet their duty of " +
                 "\ncare and allowing HGV driver hours to exceed the legal limits.");
+
+        //tab2
+        tableVehicles.setItems(listVehicles);
+        tcAge.setCellValueFactory(new PropertyValueFactory<>("age"));
+        tcName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tcLocation.setCellValueFactory(new PropertyValueFactory<>("location"));
+        tcManufacturer.setCellValueFactory(new PropertyValueFactory<>("manufacturer"));
+        tcStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+        //tab3
         fldId.setText(String.valueOf(user.getId()));
         fldName.setText(user.getName());
         fldSurname.setText(user.getSurname());

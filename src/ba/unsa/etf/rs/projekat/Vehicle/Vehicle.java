@@ -8,6 +8,7 @@ import javafx.beans.property.*;
 
 public class Vehicle {
     private SimpleIntegerProperty id;
+    private SimpleStringProperty name;
     private SimpleObjectProperty<Manufacturer> manufacturer;
     private SimpleObjectProperty<Owner> owner;
     private SimpleIntegerProperty age;
@@ -15,12 +16,13 @@ public class Vehicle {
     private SimpleObjectProperty<Location> location;
     private SimpleDoubleProperty speed;
     private SimpleDoubleProperty drivingTime;
-    private SimpleObjectProperty<Fuel> fuelConsumption;
+    private SimpleObjectProperty<Fuel> fuel;
 
-    public Vehicle(Integer id, Manufacturer manufacturer, Owner owner,
+    public Vehicle(int id, String name, Manufacturer manufacturer, Owner owner,
                    Integer age, Boolean status, Location location,
-                   Double speed, Double drivingTime, Fuel fuelConsumption) {
+                   Double speed, Double drivingTime, Fuel fuel) {
         this.id = new SimpleIntegerProperty(id);
+        this.name = new SimpleStringProperty(name);
         this.manufacturer = new SimpleObjectProperty<>(manufacturer);
         this.owner = new SimpleObjectProperty<>(owner);
         this.age = new SimpleIntegerProperty(age);
@@ -28,7 +30,7 @@ public class Vehicle {
         this.location = new SimpleObjectProperty<>(location);
         this.speed = new SimpleDoubleProperty(speed);
         this.drivingTime = new SimpleDoubleProperty(drivingTime);
-        this.fuelConsumption = new SimpleObjectProperty<>(fuelConsumption);
+        this.fuel = new SimpleObjectProperty<>(fuel);
     }
 
     public Vehicle() {
@@ -130,16 +132,28 @@ public class Vehicle {
         this.drivingTime.set(drivingTime);
     }
 
-    public Fuel getFuelConsumption() {
-        return fuelConsumption.get();
+    public Fuel getFuel() {
+        return fuel.get();
     }
 
-    public SimpleObjectProperty<Fuel> fuelConsumptionProperty() {
-        return fuelConsumption;
+    public SimpleObjectProperty<Fuel> fuelProperty() {
+        return fuel;
     }
 
-    public void setFuelConsumption(Fuel fuelConsumption) {
-        this.fuelConsumption.set(fuelConsumption);
+    public void setFuel(Fuel fuel) {
+        this.fuel.set(fuel);
+    }
+
+    public String getName() {
+        return name.get();
+    }
+
+    public SimpleStringProperty nameProperty() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name.set(name);
     }
 
     @Override
@@ -153,7 +167,7 @@ public class Vehicle {
                 ", location=" + location +
                 ", speed=" + speed +
                 ", drivingTime=" + drivingTime +
-                ", fuelConsumption=" + fuelConsumption +
+                ", fuel=" + fuel +
                 '}';
     }
 }

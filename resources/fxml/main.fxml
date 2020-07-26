@@ -43,7 +43,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TabPane prefHeight="383.0" prefWidth="546.0" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="5">
+      <TabPane prefHeight="383.0" prefWidth="546.0" styleClass="trans-btn-white-border" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="5">
         <tabs>
             <Tab text="Home">
                 <content>
@@ -132,7 +132,25 @@
             </Tab>
             <Tab text="Your vehicles">
                 <content>
-                    <BorderPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    <BorderPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="parent">
+                     <center>
+                        <TableView fx:id="tableVehicles" prefHeight="343.0" prefWidth="407.0" styleClass="blue-panel" BorderPane.alignment="CENTER">
+                          <columns>
+                            <TableColumn fx:id="tcName" text="Name" />
+                            <TableColumn fx:id="tcManufacturer" prefWidth="95.0" text="Manufacturer" />
+                              <TableColumn fx:id="tcLocation" prefWidth="89.4000244140625" text="Location" />
+                              <TableColumn fx:id="tcAge" prefWidth="59.0" text="Age" />
+                              <TableColumn fx:id="tcStatus" prefWidth="51.4000244140625" text="Status" />
+                          </columns>
+                        </TableView>
+                     </center>
+                     <left>
+                        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <ChoiceBox fx:id="choiceVehicles" prefWidth="150.0" styleClass="blue-panel" />
+                           </children>
+                        </VBox>
+                     </left></BorderPane>
                 </content>
             </Tab>
           <Tab text="Your profile">
