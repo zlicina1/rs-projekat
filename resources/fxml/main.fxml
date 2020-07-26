@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<GridPane prefHeight="400.0" prefWidth="546.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rs.projekat.Controller.MainController">
+<GridPane prefHeight="400.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+    <stylesheets>
+        <URL value="@/css/login.css" />
+    </stylesheets>
    <columnConstraints>
-      <ColumnConstraints />
-      <ColumnConstraints />
+      <ColumnConstraints maxWidth="540.2" minWidth="476.1999694824219" prefWidth="482.8" />
+      <ColumnConstraints maxWidth="69.00003051757812" minWidth="0.5999999999999659" prefWidth="0.5999999999999659" />
    </columnConstraints>
    <rowConstraints>
       <RowConstraints />
@@ -15,9 +21,10 @@
       <RowConstraints />
       <RowConstraints />
       <RowConstraints />
+      <RowConstraints />
    </rowConstraints>
    <children>
-      <MenuBar prefHeight="26.0" prefWidth="547.0">
+      <MenuBar prefHeight="26.0" prefWidth="547.0" GridPane.rowIndex="1">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -36,19 +43,201 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TabPane prefHeight="383.0" prefWidth="546.0" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="4">
+      <TabPane prefHeight="383.0" prefWidth="546.0" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="5">
         <tabs>
+            <Tab text="Home">
+                <content>
+                    <BorderPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="blue-panel">
+                        <top>
+                            <HBox prefHeight="78.0" prefWidth="461.0" BorderPane.alignment="CENTER">
+                                <children>
+                                    <Label fx:id="LabelWelcome" prefHeight="125.0" prefWidth="329.0" text="Welcome " textFill="#2196f3">
+                                        <font>
+                                            <Font name="Arial Black" size="36.0" />
+                                        </font>
+                                        <HBox.margin>
+                                            <Insets />
+                                        </HBox.margin>
+                                        <padding>
+                                            <Insets left="15.0" />
+                                        </padding>
+                                    </Label>
+                                    <ImageView fx:id="imageIconHome" fitHeight="102.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
+                                        <HBox.margin>
+                                            <Insets left="100.0" />
+                                        </HBox.margin>
+                                    </ImageView>
+                                </children>
+                            </HBox>
+                        </top>
+                        <center>
+                            <GridPane prefHeight="267.0" prefWidth="477.0" BorderPane.alignment="CENTER">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="233.0" minWidth="10.0" prefWidth="156.2" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="371.19999999999993" minWidth="10.0" prefWidth="321.4" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints maxHeight="97.8" minHeight="10.0" prefHeight="38.6000057220459" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="148.79999809265138" minHeight="10.0" prefHeight="80.00001525878906" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="132.8" minHeight="10.0" prefHeight="92.79998474121093" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="109.4" minHeight="10.0" prefHeight="40.80000000000001" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                           <children>
+                              <TextArea fx:id="textArea1" editable="false" prefHeight="98.0" prefWidth="342.0" styleClass="blue-panel" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="10.0" />
+                                 </GridPane.margin></TextArea>
+                              <TextArea fx:id="textArea2" editable="false" layoutX="116.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" styleClass="blue-panel" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets bottom="10.0" />
+                                 </GridPane.margin></TextArea>
+                              <Hyperlink fx:id="firstLink" prefHeight="31.0" prefWidth="292.0" text="Hyperlink" textFill="#2196f3" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label prefHeight="38.0" prefWidth="312.0" text="About the 'Fleet managment'" textFill="#2196f3" GridPane.columnSpan="2">
+                                 <font>
+                                    <Font name="System Bold Italic" size="17.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="5.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="We are...?" textFill="#2196f3" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="5.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Label>
+                              <Label layoutX="15.0" layoutY="41.0" prefHeight="20.0" prefWidth="143.0" text="Management of ships" textFill="#2196f3" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="5.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="159.0" prefHeight="20.0" prefWidth="143.0" text="More information:" textFill="#2196f3" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="5.0" />
+                                 </GridPane.margin>
+                              </Label>
+                           </children>
+                            </GridPane>
+                        </center></BorderPane>
+                </content>
+            </Tab>
+            <Tab text="Your vehicles">
+                <content>
+                    <BorderPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                </content>
+            </Tab>
           <Tab text="Your profile">
             <content>
               <BorderPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <right>
-                        <ImageView fx:id="imageIconProfile" fitHeight="140.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
-                     </right></BorderPane>
-            </content>
-          </Tab>
-          <Tab text="Your vehicles">
-            <content>
-              <BorderPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                     <top>
+                        <HBox prefHeight="75.0" prefWidth="546.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label fx:id="LabelProfile" prefHeight="86.0" prefWidth="362.0" text="User: " textFill="#2196f3">
+                                 <font>
+                                    <Font name="Arial Black" size="33.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets left="15.0" />
+                                 </padding>
+                              </Label>
+                              <ImageView fx:id="imageIconProfile" fitHeight="102.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="100.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </top>
+                     <center>
+                        <GridPane BorderPane.alignment="CENTER">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="233.0" minWidth="10.0" prefWidth="105.6" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="371.19999999999993" minWidth="10.0" prefWidth="371.19999999999993" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <TextField maxWidth="200.0" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets right="12.0" />
+                                 </GridPane.margin></TextField>
+                              <TextField maxWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets right="12.0" />
+                                 </GridPane.margin></TextField>
+                              <TextField maxWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets right="12.0" />
+                                 </GridPane.margin></TextField>
+                              <TextField maxWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets right="12.0" />
+                                 </GridPane.margin></TextField>
+                              <TextField maxWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <GridPane.margin>
+                                    <Insets right="12.0" />
+                                 </GridPane.margin></TextField>
+                              <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                <buttons>
+                                  <Button mnemonicParsing="false" text="Button" />
+                                    <Button mnemonicParsing="false" text="Button" />
+                                    <Button mnemonicParsing="false" text="Button" />
+                                </buttons>
+                              </ButtonBar>
+                              <Label text="Surname" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin></Label>
+                              <Label text="Username" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin></Label>
+                              <Label text="Email" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin></Label>
+                              <Label text="Name">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin></Label>
+                              <Label text="Password" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin></Label>
+                           </children>
+                        </GridPane>
+                     </center></BorderPane>
             </content>
           </Tab>
         </tabs>

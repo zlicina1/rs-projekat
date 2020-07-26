@@ -36,10 +36,13 @@ public class SingUpController {
             alert.setContentText("User: " + user.getName() + ", " + user.getSurname() + "\nusername: " + user.getUsername());
             alert.showAndWait();
 
-            Parent loader = FXMLLoader.load(getClass().getResource("/fxml/main.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
+            MainController mainController = new MainController(user);
+            loader.setController(mainController);
+            Parent root = loader.load();
             Stage newStage = new Stage();
             newStage.setTitle("User - Fleet managment");
-            newStage.setScene(new Scene(loader, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            newStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             newStage.show();
         }
         else {
